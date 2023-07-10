@@ -8,7 +8,7 @@ public class TestController {
 
     @GetMapping("/hello")
     public String hello(){
-        return "hello";
+        return "백엔드 git 7/3 연결^_^_^^_^_^ 구현은 낼부터~~~";
     }
 
 }
