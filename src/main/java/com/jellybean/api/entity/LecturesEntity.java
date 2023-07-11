@@ -29,7 +29,4 @@ public class LecturesEntity {
 
     @Column(name = "lecInfo", length = 500, nullable = false)
     private String lecInfo;
-
-
-
 }
