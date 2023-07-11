@@ -32,4 +32,11 @@ public class LecturesControll {
         return ResponseEntity.ok().body(lectures);
     }
 
+    @GetMapping("")    //모든 과정 조회
+    public ResponseEntity<List<LecturesEntity>>
+    getLectures() throws IllegalAccessException {
+        List<LecturesEntity> lectures = lecturesService.getLectures();
+        return ResponseEntity.ok().body(lectures);
+    }
+
 }
