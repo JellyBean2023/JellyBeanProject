@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface LecturesRepository extends JpaRepository<LecturesEntity, Long> {
 
-    Optional<LecturesEntity> findByLecName(String lecName);
+    Optional<LecturesEntity> findByLecName(String lecName);   //과정별
 
-    List<LecturesEntity> findAll();
+    List<LecturesEntity> findAll();  //전체
 }

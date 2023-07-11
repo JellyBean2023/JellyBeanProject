@@ -19,12 +19,6 @@ import java.util.Optional;
 public class LecturesControll {
     private final LecturesService lecturesService;
 
-    /*
-    @GetMapping("/main")
-    public String lectures(){
-        return "KDT 소개";
-    }*/
-
     @GetMapping("/{lecName}")    //과정별 조회
     public ResponseEntity<Optional<LecturesEntity>>
     getLecturesByName(@PathVariable("lecName") String lecName) throws IllegalAccessException {
