@@ -12,7 +12,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Service
@@ -76,16 +78,28 @@ public class FileDataService {
     }
 
 
-    public List<String> getAllImagePaths(){
+    public List<String> getAllImageNames(){
         List<FileData> fileDataList = fileDataRepository.findAll();
-        List<String> imagePaths = new ArrayList<>();
+        List<String> imageNames = new ArrayList<>();
 
         for(FileData fileData : fileDataList){
-            String imagePath = fileData.getFilePath();
-            imagePaths.add(imagePath);
+            String imageName = fileData.getName();
+            imageNames.add(imageName);
         }
-        return imagePaths;
+        return imageNames;
     }
 
+
+//    public Map<String, String> getAllImageMaps(){
+//        List<FileData> fileDataList = fileDataRepository.findAll();
+//        Map<String, String> imageMaps = new HashMap<>();
+//
+//        for(FileData fileData : fileDataList){
+//            String id = String.valueOf(fileData.getId());
+//            String imageName = fileData.getName();
+//            imageMaps.put(id, imageName);
+//        }
+//        return imageMaps;
+//    }
 
 }

@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -36,8 +37,8 @@ public class FileDataController {
 
     @GetMapping("/images")
     public ResponseEntity<List<String>> getAllImages() throws IOException {
-        List<String> imagePaths = storageService.getAllImagePaths();
-        return ResponseEntity.ok(imagePaths);
+        List<String> imageNames = storageService.getAllImageNames();
+        return ResponseEntity.ok(imageNames);
     }
 
 }

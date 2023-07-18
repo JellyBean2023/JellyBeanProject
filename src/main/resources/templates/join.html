@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/basic.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Join Page</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+  <div class="row mt-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          JOIN
+        </div>
+        <div class="card-body">
+          <form id="registerForm" action="/member/join" method="post">
+            <div class="input-group mb-3">
+              <span class="input-group-text">이름</span>
+              <input type="text" name="name" class="form-control">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">이메일</span>
+              <input type="email" name="email" class="form-control">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">비밀번호</span>
+              <input type="password" name="pw" class="form-control">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">생년월일</span>
+              <input type="text" name="birth" class="form-control">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">핸드폰번호</span>
+              <input type="text" name="phone" class="form-control">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">가입일</span>
+              <input type="text" name="regdate" class="form-control">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">사용자 타입</span>
+              <input type="text" name="roleSet" class="form-control">
+
+            <div class="my-4">
+              <div class="float-end">
+                <button type="submit" class="btn btn-primary submitBtn">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+</div>
+
+<script layout:fragment="script" th:inline="javascript">
+  const error = [[${error}]]
+
+  if(error && error === 'email'){
+    alert("동일한 email을 가진 계정이 존재합니다.")
+  }
+</script>
+
+</body>
+</html>
