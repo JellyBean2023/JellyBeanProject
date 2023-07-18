@@ -1,9 +1,16 @@
 package com.jellybean.api.repository;
 
-import com.jellybean.api.entity.User;
+import com.jellybean.api.entity.RegistEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-@Repository
-public interface RegistRepository extends JpaRepository<User, Long> {
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
+
+
+public interface RegistRepository extends JpaRepository<RegistEntity, Long> {
+
+    Optional<RegistEntity> findByname(String name);   //이름별
+    List<RegistEntity> findAll();  //전체
 
 }
