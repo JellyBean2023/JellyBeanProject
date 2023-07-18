@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -31,6 +32,12 @@ public class FileDataController {
         return ResponseEntity.status(HttpStatus.OK)
                 .contentType(MediaType.valueOf("image/png"))
                 .body(downloadImage);
+    }
+
+    @GetMapping("/images")
+    public ResponseEntity<List<String>> getAllImages() throws IOException {
+        List<String> imagePaths = storageService.getAllImagePaths();
+        return ResponseEntity.ok(imagePaths);
     }
 
 }

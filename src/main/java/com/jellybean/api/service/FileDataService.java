@@ -11,6 +11,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -73,6 +75,17 @@ public class FileDataService {
         return Files.readAllBytes(new File(filePath).toPath());
     }
 
+
+    public List<String> getAllImagePaths(){
+        List<FileData> fileDataList = fileDataRepository.findAll();
+        List<String> imagePaths = new ArrayList<>();
+
+        for(FileData fileData : fileDataList){
+            String imagePath = fileData.getFilePath();
+            imagePaths.add(imagePath);
+        }
+        return imagePaths;
+    }
 
 
 }
