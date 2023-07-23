@@ -3,16 +3,12 @@ package com.jellybean.api.service;
 import com.jellybean.api.Vo.UserRequest;
 import com.jellybean.api.entity.RegistEntity;
 import com.jellybean.api.repository.RegistRepository;
-
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -37,8 +33,6 @@ public class RegistService {
             );
             return "Success";
         } catch (DataIntegrityViolationException e) {
-
-
             throw new AlreadyExistException("User with the same name or email already exists", e);
         } catch (Exception e) {
             throw new RegistrationException("Registration failed due to an unexpected error", e);
