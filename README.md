@@ -3,20 +3,20 @@
 천재교육 디지털러닝팀의 KDT 교육 소개 및 신청 웹 사이트 구축을 목표로 한다.
 ## 기간
 2023.06.15 ~ 2023.08.10
-3. 멤버구성
+## 멤버구성
 고현욱 팀장, 프론트
 김동현 프론트, DB, 서버
 김소현 PM
 유다희 백엔드
 임하늘 백엔드
 (손진경 자문)
-4. 개발환경
+## 개발환경
 Java SE : Oracle JDK-11
 Framework : Springboot 2.7.
 IDE : Intellij
 Database : Maria DB 11.0.2
 Server : Ubuntu 22.04 LTS
-5. 주요 기능
+## 주요 기능
 1) KDT 강의 소개 및 강의 신청
 - KDT 강의 소개
 관리자가 입력한 KDT 소개를 DB에 저장한다.
