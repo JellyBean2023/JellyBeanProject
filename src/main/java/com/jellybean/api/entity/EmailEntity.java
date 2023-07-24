@@ -24,9 +24,4 @@ public class EmailEntity {
     @Column(name = "code", length = 100, nullable = false)
     private String code;
 
-    @Column(name = "createAt", length = 100, nullable = false)
-    private String createAt;
-
-    @Column(name = "updateAt", length = 100, nullable = true)
-    private String updateAt;
 }

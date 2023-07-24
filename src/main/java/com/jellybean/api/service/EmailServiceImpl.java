@@ -1,17 +1,43 @@
 package com.jellybean.api.service;
 
+import com.jellybean.api.entity.EmailEntity;
+import com.jellybean.api.repository.EmailRepository;
 import jakarta.mail.Message.RecipientType;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
 import java.util.Random;
 
+@Slf4j
+@Component
+@Repository
+@RestController
+@Controller
 @Service
 public class EmailServiceImpl implements EmailService{
+    private final EmailRepository emailRepository;
+
+    public EmailServiceImpl(EmailRepository emailRepository) {
+        this.emailRepository = emailRepository;
+    }
+
+    @Override
+    public void saveEmailCode(String email, String code) {
+        EmailEntity emailEntity = new EmailEntity();
+        emailEntity.setEmail(email);
+        emailEntity.setCode(code);
+        emailRepository.save(emailEntity);
+    }
 
     @Autowired
     JavaMailSender emailSender;
@@ -70,17 +96,35 @@ public class EmailServiceImpl implements EmailService{
         }
         return key.toString();
     }
+
     @Override
     public String sendSimpleMessage(String to)throws Exception {
-        // TODO Auto-generated method stub
+        // 이메일 전송
         MimeMessage message = createMessage(to);
         try{//예외처리
             emailSender.send(message);
         }catch(MailException es){
             es.printStackTrace();
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Failed to send email.");
         }
+
+        // DB에 이메일과 인증번호 저장
+        saveEmailCode(to, ePw);
+
         return ePw;
+    }
+
+    public boolean checker(String email, String code) {
+        // DB에서 해당 이메일로 저장된 인증 코드를 가져옴
+        Optional<EmailEntity> savedVerificationCode = emailRepository.findByemail(email);
+
+        // Optional 객체가 비어있는지 확인하고 인증 코드 비교
+        if (savedVerificationCode.isPresent()) {
+            return code.equals(savedVerificationCode.get().getCode());
+        } else {
+            // 해당 이메일로 저장된 인증 코드가 없는 경우
+            return false;
+        }
     }
 }
 
