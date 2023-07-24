@@ -9,22 +9,14 @@
 |유다희|백엔드|
 |임하늘|백엔드|
 |손진경|개발자문|
-유다희 백엔드
-
-임하늘 백엔드
-
-손진경 개발자문
 
 ## 개발환경
-Java SE : Oracle JDK-11
-
-Framework : Springboot 2.7.13
-
-IDE : Intellij
-
-Database : Maria DB 11.0.2
-
-Server : Ubuntu 22.04 LTS
+|개발환경|버전|
+|------|---|
+|Java SE|Oracle JDK-11|
+|Framework|Springboot 2.7.13|
+|IDE|Intellij|
+|Database|Maria DB 11.0.2|
 
 ## 주요 기능
 ### KDT 강의 소개 및 강의 신청
