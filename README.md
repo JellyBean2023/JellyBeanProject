@@ -4,18 +4,29 @@
 ## 기간
 2023.06.15 ~ 2023.08.10
 ## 멤버구성
-고현욱 팀장, 프론트
+고현욱 팀장, 프론트, 서버
+
 김동현 프론트, DB, 서버
+
 김소현 PM
+
 유다희 백엔드
+
 임하늘 백엔드
-(손진경 자문)
+
+손진경 개발자문
+
 ## 개발환경
 Java SE : Oracle JDK-11
-Framework : Springboot 2.7.
+
+Framework : Springboot 2.7.13
+
 IDE : Intellij
+
 Database : Maria DB 11.0.2
+
 Server : Ubuntu 22.04 LTS
+
 ## 주요 기능
 ### KDT 강의 소개 및 강의 신청
 + KDT 강의 소개
