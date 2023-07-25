@@ -16,6 +16,7 @@ public class MemberResponse {
         return new MemberResponse(member.getEmail());
     }
 
+
 //    private boolean success;
 //
 //    public static MemberResponse memberResponse(Member member){
