@@ -22,6 +22,7 @@ public class EmailController {
     @Autowired
     private final EmailServiceImpl emailService;
 
+
     @PostMapping("/regist/emailConfirm")
     public String emailConfirm(@RequestParam String email) throws Exception {
         String code = emailService.sendSimpleMessage(email);

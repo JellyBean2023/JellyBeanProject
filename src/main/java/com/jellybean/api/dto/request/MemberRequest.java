@@ -32,6 +32,7 @@ public class MemberRequest {
             .birth(birth)
             .phone(phone)
             .empNumber(empNumber)
+            .registCheck(registCheck)
             .build();
     }
 
@@ -43,6 +44,7 @@ public class MemberRequest {
                 .birth(birth)
                 .phone(phone)
                 .empNumber(empNumber)
+                .registCheck(registCheck)
                 .build();
     }
 
