@@ -23,14 +23,13 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok'
-    runtimeOnly 'com.h2database:h2:2.1.214'
-    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
-
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
 
+    compileOnly 'org.projectlombok:lombok'
+//    runtimeOnly 'com.h2database:h2:2.1.214'
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 
     annotationProcessor 'org.projectlombok:lombok'
@@ -50,29 +49,9 @@ dependencies {
     implementation 'org.springframework:spring-context-support:5.3.10'
     implementation 'com.sun.mail:javax.mail:2.0.1'
 
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    implementation 'commons-io:commons-io:2.11.0'
-
-    implementation 'org.springframework.boot:spring-boot-starter-mail'
-
-   // implementation 'javax.mail:javax.mail:1.6.2'
-    implementation 'com.sun.mail:javax.mail:1.6.2'
-
-    // Remove the following two lines since they are causing conflicts
-    // implementation 'javax.mail:javax.mail-api:1.6.2'
-    // implementation 'javax.mail:javax.mail:2.0.1'
-
-    implementation 'org.springframework.boot:spring-boot-starter-security'
-
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 }
 
 tasks.named('test') {
     useJUnitPlatform()
-}
-tasks.named('compileJava') {
-    inputs.files(tasks.named('processResources'))
 }

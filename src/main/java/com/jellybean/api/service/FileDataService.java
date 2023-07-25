@@ -2,12 +2,12 @@ package com.jellybean.api.service;
 
 import com.jellybean.api.entity.FileData;
 import com.jellybean.api.repository.FileDataRepository;
+import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.transaction.Transactional;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;

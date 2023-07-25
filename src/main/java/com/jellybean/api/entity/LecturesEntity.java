@@ -1,8 +1,7 @@
 package com.jellybean.api.entity;
 
-import lombok.*;
-
 import javax.persistence.*;
+import lombok.*;
 
 @Entity
 @Table(name = "lectures")

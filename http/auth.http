@@ -1,0 +1,47 @@
+### 회원가입
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+  "email": "hyun@hyundai.bin",
+  "password": "1q2w3e4r",
+  "name": "현대빈",
+  "birth": "2023-07-20",
+  "phone": "010-1234-5678"
+  "empNumber" : ""
+}
+
+{
+  "email": "sky@naver.com",
+  "password": "1q2w3e4r",
+  "name": "임하늘",
+  "birth": "2023-07-24",
+  "phone": "010-1234-1111"
+  "empNumber" : ""
+}
+
+{
+  "email": "kim@naver.com",
+  "password": "1q2w3e4r!@#",
+  "name": "김동현",
+  "birth": "2023-07-25",
+  "phone": "010-1234-8888"
+  "empNumber" : ""
+  "registCheck" : "1,2,4"
+}
+
+### 로그인
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "hyun@hyundai.bin",
+  "password": "1q2w3e4r"
+}
+
+###로그아웃
+
+{
+    "accessToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiYXV0aCI6IlJPTEVfTUVNQkVSIiwiZXhwIjoxNjkwMTI4MjQ0fQ.l1tM2hrdwCHvAtafDcQDRwbNvuS503ETOz0O5dZgHkRLdy6xq89dzHNUzWn2qLblhQK3Ny3CooLywFobVbPjTg",
+    "refreshToken": "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2OTA3MzEyNDR9.UnVs8_SMhHsm1cQdb6F509oxSO1q2k2Wt8ycouBkxvedzwJ87BlutmbLZN2n4nZPI_hxh4XJ1EJsIPbJBsIiAw"
+}
