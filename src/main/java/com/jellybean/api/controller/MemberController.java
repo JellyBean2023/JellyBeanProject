@@ -27,4 +27,7 @@ public class MemberController {
     public ResponseEntity<MemberResponse> findMemberInfoByEmail(@PathVariable String email) {
         return ResponseEntity.ok(memberService.findMemberInfoByEmail(email));
     }
+
+
+
 }

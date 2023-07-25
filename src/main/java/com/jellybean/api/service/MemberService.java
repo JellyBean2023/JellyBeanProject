@@ -1,6 +1,9 @@
 package com.jellybean.api.service;
 
+import com.jellybean.api.dto.response.KdtMemberResponse;
+import com.jellybean.api.entity.LecturesEntity;
 import com.jellybean.api.entity.Member;
+import com.jellybean.api.repository.KdtMemberRepository;
 import com.jellybean.api.repository.MemberRepository;
 import com.jellybean.api.dto.response.MemberResponse;
 import lombok.RequiredArgsConstructor;
@@ -8,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -16,6 +21,7 @@ import java.util.Optional;
 public class MemberService {
 
     private final MemberRepository memberRepository;
+    private final KdtMemberRepository kdtMemberRepository;
 
     public MemberResponse findMemberInfoById(Long memberId) {
         return memberRepository.findById(memberId)
@@ -33,6 +39,25 @@ public class MemberService {
     public boolean isEmailDuplicated(String email) {
         Optional<Member> existingMember = memberRepository.findByEmail(email);
         return existingMember.isPresent();
+    }
+
+//    public KdtMemberResponse getKdtMember(String email)  {
+//        return memberRepository.findByEmail(email);
+//    }
+
+    public List<KdtMemberResponse> getKdtMember(String email) {
+        List<Member> members = kdtMemberRepository.findByEmail(email);
+        return members.stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
+    }
+
+    private KdtMemberResponse convertToDto(Member member) {
+        KdtMemberResponse kdtMemberResponse = new KdtMemberResponse();
+        kdtMemberResponse.setEmail(member.getEmail());
+        kdtMemberResponse.setName(member.getName());
+        kdtMemberResponse.setBirth(member.getBirth());
+        return kdtMemberResponse;
     }
 
 }
