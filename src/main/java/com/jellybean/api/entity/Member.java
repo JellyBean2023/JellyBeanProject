@@ -25,29 +25,44 @@ public class Member {
     @Column(name = "member_id")
     private Long id;
 
+    @Column(name="name", nullable = false)
     private String name;
 
+    @Column(name="email", nullable = false)
     private String email;
 
+    @Column(name="password", nullable = false)
     private String password;
 
+    @Column(name="birth", nullable = false)
     private String birth;
 
+    @Column(name="phone", nullable = false)
     private String phone;
 
+    @Column(name="createdAt", nullable = false)
     private LocalDateTime createdAt;
+
+    @Column(name="registCheck", nullable = false)
+    private String registCheck;
+
+    @Column(name="empNumber", nullable = true)
+    private String empNumber;
 
     @Enumerated(EnumType.STRING)
     private Authority authority;
 
     @Builder
     public Member(String name, String email, String password, String birth, String phone,
-        LocalDateTime createdAt, Authority authority) {
+        LocalDateTime createdAt, String registCheck, String empNumber, Authority authority) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.birth = birth;
         this.phone = phone;
+        this.createdAt = createdAt;
+        this.registCheck = registCheck;
+        this.empNumber = empNumber;
         this.authority = authority;
         this.createdAt = LocalDateTime.now();
     }

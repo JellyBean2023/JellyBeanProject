@@ -45,8 +45,8 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     implementation 'commons-io:commons-io:2.11.0'
 
-    implementation 'org.springframework:spring-context:6.0.7'
-    implementation 'org.springframework:spring-context-support:6.0.7'
+    implementation 'org.springframework:spring-context:5.3.10'
+    implementation 'org.springframework:spring-context-support:5.3.10'
     implementation 'com.sun.mail:javax.mail:2.0.1'
 
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"

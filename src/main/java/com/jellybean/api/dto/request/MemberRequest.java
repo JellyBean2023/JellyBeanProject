@@ -20,6 +20,8 @@ public class MemberRequest {
     private String name;
     private String birth;
     private String phone;
+    private String registCheck;
+    private String empNumber;
 
     public Member toMember(PasswordEncoder passwordEncoder) {
         return Member.builder()
@@ -29,6 +31,7 @@ public class MemberRequest {
             .name(name)
             .birth(birth)
             .phone(phone)
+            .empNumber(empNumber)
             .build();
     }
 
@@ -39,6 +42,7 @@ public class MemberRequest {
                 .name(name)
                 .birth(birth)
                 .phone(phone)
+                .empNumber(empNumber)
                 .build();
     }
 

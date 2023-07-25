@@ -1,10 +1,14 @@
 package com.jellybean.api.service;
 
+import com.jellybean.api.entity.Member;
 import com.jellybean.api.repository.MemberRepository;
 import com.jellybean.api.dto.response.MemberResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -23,6 +27,12 @@ public class MemberService {
         return memberRepository.findByEmail(email)
             .map(MemberResponse::memberResponse)
             .orElseThrow(() -> new RuntimeException("유저 정보가 없습니다."));
+    }
+
+
+    public boolean isEmailDuplicated(String email) {
+        Optional<Member> existingMember = memberRepository.findByEmail(email);
+        return existingMember.isPresent();
     }
 
 }

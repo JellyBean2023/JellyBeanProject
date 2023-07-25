@@ -8,6 +8,8 @@ import com.jellybean.api.dto.response.MemberResponse;
 import com.jellybean.api.entity.Member;
 import com.jellybean.api.service.AuthService;
 import javax.servlet.http.HttpSession;
+
+import com.jellybean.api.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -19,11 +21,37 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
+    private final MemberService memberService;
 
     @PostMapping("/signup")
-    public ResponseEntity<MemberResponse> signup(@RequestBody MemberRequest memberRequest) {
-        return ResponseEntity.ok(authService.signup(memberRequest));
+    public ResponseEntity<Boolean> signup(@RequestBody MemberRequest memberRequest) {
+
+        //이메일 중복 확인
+        boolean isEmailDuplicated = memberService.isEmailDuplicated(memberRequest.getEmail());
+        if(isEmailDuplicated){
+            return ResponseEntity.badRequest().body(false);
+        }
+
+        //회원가입 성공 처리
+        MemberResponse response = authService.signup(memberRequest);
+        return ResponseEntity.ok(true);
+//        return ResponseEntity.ok(authService.signup(memberRequest));
     }
+
+//    @PostMapping("/signup")
+//    public ResponseEntity<MemberResponse> signup(@RequestBody MemberRequest memberRequest) {
+//
+//        //이메일 중복 확인
+//        boolean isEmailDuplicated = memberService.isEmailDuplicated(memberRequest.getEmail());
+//        if(isEmailDuplicated){
+//            return ResponseEntity.badRequest().body(new MemberResponse("false"));
+//        }
+//
+//        //회원가입 성공 처리
+//        MemberResponse response = authService.signup(memberRequest);
+//        return ResponseEntity.ok(response);
+////        return ResponseEntity.ok(authService.signup(memberRequest));
+//    }
 
     @PostMapping("/login")
     public ResponseEntity<TokenDto> login(@RequestBody MemberRequest memberRequest) {

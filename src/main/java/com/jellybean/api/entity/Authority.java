@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 public enum Authority {
 
     ROLE_MEMBER("ROLE_MEMBER"),
+    ROLE_EMP("ROLE_EMP"),
     ROLE_ADMIN("ROLE_ADMIN");
 
     private final String value;
