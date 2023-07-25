@@ -1,12 +1,12 @@
 package com.jellybean.api.entity;
 
-import jakarta.persistence.*;
 import lombok.*;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "user")
+@Table(name = "members")
 @ToString
 @Getter
 @Setter
@@ -25,9 +25,6 @@ public class RegistEntity {
 
     @Column(name = "password", length = 200, nullable = false)
     private String password;
-
-    @Column(name = "confirmPassword", length = 200, nullable = false)
-    private String confirmPassword;
 
     @Column(name = "phone", length = 100, nullable = false)
     private String phone;

@@ -9,6 +9,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -22,7 +23,6 @@ public class RegistService {
                     RegistEntity.builder()
                             .name(request.getName())
                             .password(request.getPassword())
-                            .confirmPassword(request.getConfirmPassword())
                             .phone(request.getPhone())
                             .email(request.getEmail())
                             .birthday(LocalDate.parse(request.getBirthday()))
@@ -37,6 +37,11 @@ public class RegistService {
         } catch (Exception e) {
             throw new RegistrationException("Registration failed due to an unexpected error", e);
         }
+    }
+
+    public boolean isEmailDuplicated(String email) {
+        Optional<RegistEntity> existingMember = registRepository.findByemail(email);
+        return existingMember.isPresent();
     }
 }
 /*

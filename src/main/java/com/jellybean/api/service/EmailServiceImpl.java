@@ -2,9 +2,6 @@ package com.jellybean.api.service;
 
 import com.jellybean.api.entity.EmailEntity;
 import com.jellybean.api.repository.EmailRepository;
-import jakarta.mail.Message.RecipientType;
-import jakarta.mail.internet.InternetAddress;
-import jakarta.mail.internet.MimeMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
@@ -15,6 +12,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.mail.Message.RecipientType;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.util.Optional;
 import java.util.Random;
 
