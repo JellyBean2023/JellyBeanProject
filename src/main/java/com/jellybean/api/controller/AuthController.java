@@ -5,15 +5,10 @@ import com.jellybean.api.dto.TokenDto;
 import com.jellybean.api.dto.request.MemberRequest;
 import com.jellybean.api.dto.request.TokenRequest;
 import com.jellybean.api.dto.response.MemberResponse;
-import com.jellybean.api.entity.Member;
 import com.jellybean.api.service.AuthService;
-import javax.servlet.http.HttpSession;
-
 import com.jellybean.api.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,6 +17,17 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
     private final AuthService authService;
     private final MemberService memberService;
+
+    @PostMapping("/signup/emailcheck")
+    public ResponseEntity<Boolean> emailcheck(@RequestBody MemberRequest memberRequest) {
+
+        //이메일 중복 확인
+        boolean isEmailDuplicated = memberService.isEmailDuplicated(memberRequest.getEmail());
+        if (isEmailDuplicated) {
+            return ResponseEntity.badRequest().body(false);
+        }
+        return ResponseEntity.ok(true);
+    }
 
     @PostMapping("/signup")
     public ResponseEntity<Boolean> signup(@RequestBody MemberRequest memberRequest) {
