@@ -11,9 +11,11 @@ import lombok.NoArgsConstructor;
 public class MemberResponse {
 
     private String email;
+    private String name;
+    private String birth;
 
     public static MemberResponse memberResponse(Member member) {
-        return new MemberResponse(member.getEmail());
+        return new MemberResponse(member.getEmail(), member.getName(), member.getBirth());
     }
 
 

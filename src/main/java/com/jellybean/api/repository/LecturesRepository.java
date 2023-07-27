@@ -10,5 +10,7 @@ public interface LecturesRepository extends JpaRepository<LecturesEntity, Long> 
 
     Optional<LecturesEntity> findByLecName(String lecName);   //과정별
 
+    List<LecturesEntity> findByLecId(Long lecId);
+
     List<LecturesEntity> findAll();  //전체
 }
