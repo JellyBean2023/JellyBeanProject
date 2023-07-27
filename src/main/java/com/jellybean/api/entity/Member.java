@@ -1,18 +1,12 @@
 package com.jellybean.api.entity;
 
-import java.time.LocalDateTime;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -46,15 +40,15 @@ public class Member {
     @Column(name="registCheck", nullable = false)
     private String registCheck;
 
-    @Column(name="empNumber", nullable = true)
-    private String empNumber;
+    @Column(name="employeeNumber", nullable = true)
+    private String employeeNumber;
 
     @Enumerated(EnumType.STRING)
     private Authority authority;
 
     @Builder
     public Member(String name, String email, String password, String birth, String phone,
-        LocalDateTime createdAt, String registCheck, String empNumber, Authority authority) {
+                  LocalDateTime createdAt, String registCheck, String employeeNumber, Authority authority) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -62,7 +56,7 @@ public class Member {
         this.phone = phone;
         this.createdAt = createdAt;
         this.registCheck = registCheck;
-        this.empNumber = empNumber;
+        this.employeeNumber = employeeNumber;
         this.authority = authority;
         this.createdAt = LocalDateTime.now();
     }

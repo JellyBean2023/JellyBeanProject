@@ -21,7 +21,7 @@ public class MemberRequest {
     private String birth;
     private String phone;
     private String registCheck;
-    private String empNumber;
+    private String employeeNumber;
 
     public Member toMember(PasswordEncoder passwordEncoder) {
         return Member.builder()
@@ -31,7 +31,7 @@ public class MemberRequest {
             .name(name)
             .birth(birth)
             .phone(phone)
-            .empNumber(empNumber)
+            .employeeNumber(employeeNumber)
             .registCheck(registCheck)
             .build();
     }
@@ -43,7 +43,7 @@ public class MemberRequest {
                 .name(name)
                 .birth(birth)
                 .phone(phone)
-                .empNumber(empNumber)
+                .employeeNumber(employeeNumber)
                 .registCheck(registCheck)
                 .build();
     }

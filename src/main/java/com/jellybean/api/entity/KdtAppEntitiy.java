@@ -1,8 +1,8 @@
 package com.jellybean.api.entity;
 
-import javax.persistence.*;
 import lombok.*;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -68,9 +68,9 @@ public class KdtAppEntitiy {
     @Column(name = "reason", length = 400, nullable = false)
     private String reason;
 
-    @Column(name = "recomment", length = 200, nullable = false)
-    private String recomment;
+    @Column(name = "recommend", length = 200, nullable = false)
+    private String recommend;
 
-    @Column(name = "oooText", length = 200, nullable = true)
-    private String oooText;
+    @Column(name = "id", length = 200, nullable = true)
+    private String id;
 }

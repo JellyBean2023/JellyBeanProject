@@ -34,8 +34,8 @@ public class KdtAppService {
                             .pathText(request.getPathText())
                             .paths(request.getPaths())
                             .reason(request.getReason())
-                            .recomment(request.getRecomment())
-                            .oooText(request.getOooText())
+                            .recommend(request.getRecommend())
+                            .id(request.getId())
                             .build()
             );
             return "Success";
