@@ -26,6 +26,6 @@ public class KdtAppRequest {
     private String pathText;
     private String paths;
     private String reason;
-    private String recomment;
-    private String oooText;
+    private String recommend;
+    private String id;
 }
