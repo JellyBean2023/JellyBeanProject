@@ -26,8 +26,8 @@ public class KdtAppEntitiy {
     @Column(name = "email", length = 100, nullable = false)
     private String email;
 
-    @Column(name = "phoneNumber", length = 100, nullable = false)
-    private String phoneNumber;
+    @Column(name = "phone", length = 100, nullable = false)
+    private String phone;
 
     @Column(name = "phoneNumberText", length = 100, nullable = false)
     private String phoneNumberText;
