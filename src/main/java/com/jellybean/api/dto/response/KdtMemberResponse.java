@@ -16,8 +16,8 @@ public class KdtMemberResponse {
     private String name;
     private String birth;
 
-//    public static KdtMemberResponse kdtMemberResponse(Member member) {
-//        return new KdtMemberResponse(member.getEmail(), member.getName(), member.getBirth());
-//    }
+    public static KdtMemberResponse kdtMemberResponse(Member member) {
+        return new KdtMemberResponse(member.getEmail(), member.getName(), member.getBirth());
+    }
 
 }
