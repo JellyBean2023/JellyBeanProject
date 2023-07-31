@@ -10,6 +10,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,7 @@ public class FileDataService {
 
     private final FileDataRepository fileDataRepository;
 //    private final String FOLDER_PATH = "C:\\files";
-    private final String FOLDER_PATH = "/home/jellybean/바탕화면/JellyBeanBack/Picture";
+    private final String FOLDER_PATH = "~/바탕화면/JellyBeanBack/Picture";
 
     private final FilesService filesService;
 
@@ -30,6 +32,15 @@ public class FileDataService {
         log.info("upload file: {}", file.getOriginalFilename());
 //        String filePath = FOLDER_PATH + "\\" +file.getOriginalFilename();
 //        String filePath = FOLDER_PATH + "\\" + generateFileName() + getFileExtension(file.getOriginalFilename());
+
+//        String encodedPath = "";
+//        try {
+//            encodedPath = URLEncoder.encode(FOLDER_PATH, "UTF-8");
+//        } catch (UnsupportedEncodingException e) {
+//            // 인코딩 실패 시 예외 처리
+//            e.printStackTrace();
+//        }
+
         String filePath = FOLDER_PATH + "/" + generateFileName() + getFileExtension(file.getOriginalFilename());
         String fileNewName = generateFileName() + getFileExtension(file.getOriginalFilename());
         fileDataRepository.save(
