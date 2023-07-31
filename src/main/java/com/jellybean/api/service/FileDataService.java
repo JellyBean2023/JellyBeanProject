@@ -20,7 +20,8 @@ import java.util.List;
 public class FileDataService {
 
     private final FileDataRepository fileDataRepository;
-    private final String FOLDER_PATH = "C:\\files";
+//    private final String FOLDER_PATH = "C:\\files";
+    private final String FOLDER_PATH = "/home/jellybean/바탕화면/JellyBeanBack/Picture";
 
     private final FilesService filesService;
 
@@ -28,7 +29,8 @@ public class FileDataService {
     public String uploadImageToFileSystem(MultipartFile file) throws IOException{
         log.info("upload file: {}", file.getOriginalFilename());
 //        String filePath = FOLDER_PATH + "\\" +file.getOriginalFilename();
-        String filePath = FOLDER_PATH + "\\" + generateFileName() + getFileExtension(file.getOriginalFilename());
+//        String filePath = FOLDER_PATH + "\\" + generateFileName() + getFileExtension(file.getOriginalFilename());
+        String filePath = FOLDER_PATH + "/" + generateFileName() + getFileExtension(file.getOriginalFilename());
         String fileNewName = generateFileName() + getFileExtension(file.getOriginalFilename());
         fileDataRepository.save(
                 FileData.builder()
