@@ -20,7 +20,7 @@ public class KdtAppService {
                     KdtAppEntitiy.builder()
                             .name(request.getName())
                             .email(request.getEmail())
-                            .phoneNumber(request.getPhoneNumber())
+                            .phone(request.getPhone())
                             .phoneNumberText(request.getPhoneNumberText())
                             .date(request.getDate())
                             .agreeCollect(request.isAgreeCollect())

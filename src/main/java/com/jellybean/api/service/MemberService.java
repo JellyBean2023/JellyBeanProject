@@ -1,13 +1,11 @@
 package com.jellybean.api.service;
 
 import com.jellybean.api.dto.response.KdtMemberResponse;
-import com.jellybean.api.entity.LecturesEntity;
+import com.jellybean.api.dto.response.MemberResponse;
 import com.jellybean.api.entity.Member;
 import com.jellybean.api.repository.KdtMemberRepository;
 import com.jellybean.api.repository.MemberRepository;
-import com.jellybean.api.dto.response.MemberResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

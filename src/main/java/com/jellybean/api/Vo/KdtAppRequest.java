@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class KdtAppRequest {
     private String name;
     private String email;
-    private String phoneNumber;
+    private String phone;
     private String phoneNumberText;
     private LocalDate date;
     private boolean agreeCollect;
