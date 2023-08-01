@@ -88,6 +88,26 @@ public class AdminService {
         return true;
     }
 
+    //모든 과정 조회
+    public List<String> getAdminLectures() throws IllegalAccessException {
+
+        List<String> adminLectures = new ArrayList<>();
+        List<LecturesEntity> lectures = lecturesRepository.findAll();
+
+        for (LecturesEntity lecture : lectures) {
+            String lectureInfo = "{"
+                    + "\"lecName\" : \"" + lecture.getLecName() + "\", "
+                    + "\"cardinalName\" : \"" + lecture.getCardinalName() + "\", "
+                    + "\"lecStatus\" : \"" + lecture.getLecStatus() + "\", "
+                    + "\"lecInfo\" : \"" + lecture.getLecInfo() + "\""
+                    + "}, ";
+
+            adminLectures.add("\"" + lecture.getLecId() + "\" : " + lectureInfo);
+        }
+
+        if(!lectures.isEmpty()) return adminLectures;
+        else throw new IllegalAccessException("no such data");
+    }
 
 
 }

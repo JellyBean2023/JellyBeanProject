@@ -1,5 +1,6 @@
 package com.jellybean.api.dto.response;
 
+import com.jellybean.api.entity.Member;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

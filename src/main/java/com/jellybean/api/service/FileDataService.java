@@ -23,7 +23,7 @@ public class FileDataService {
 
     private final FileDataRepository fileDataRepository;
 //    private final String FOLDER_PATH = "C:\\files";
-    private final String FOLDER_PATH = "~/바탕화면/JellyBeanBack/Picture";
+    private final String FOLDER_PATH = System.getProperty("user.home") + "/바탕화면/JellyBeanBack/Picture";
 
     private final FilesService filesService;
 
