@@ -1,23 +1,37 @@
 package com.jellybean.api.dto.response;
 
-import com.jellybean.api.entity.Member;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+import java.time.LocalDate;
 
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class KdtMemberResponse {
 
-    private String email;
-    private String name;
-    private String birth;
+        private boolean isExist;
+        private String name;
+        private String email;
+        private String phoneNumber;
+        private String phoneNumberText;
+        private LocalDate date;
+        private boolean agreeCollect;
+        private boolean agreeThirdParty;
+        private String experience;
+        private String experienceText;
+        private String finalEducation;
+        private String getCard;
+        private String getEx;
+        private String grade;
+        private String pathText;
+        private String paths;
+        private String reason;
+        private String recommend;
+        private String id;
 
-//    public static KdtMemberResponse kdtMemberResponse(Member member) {
-//        return new KdtMemberResponse(member.getEmail(), member.getName(), member.getBirth());
-//    }
-
+        public KdtMemberResponse(boolean isExist) {
+                this.isExist = isExist;
+        }
 }
