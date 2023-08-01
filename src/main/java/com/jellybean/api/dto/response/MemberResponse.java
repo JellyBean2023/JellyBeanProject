@@ -18,12 +18,8 @@ public class MemberResponse {
     public static MemberResponse memberResponse(Member member) {
         return new MemberResponse(member.getEmail(), member.getName(), member.getBirth(), member.getPhone());
     }
-
-
-//    private boolean success;
-//
-//    public static MemberResponse memberResponse(Member member){
-//        return new MemberResponse(member.getSuccess)
-//    }
-
 }
+
+
+
+

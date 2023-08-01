@@ -1,6 +1,5 @@
 package com.jellybean.api.service;
 
-import com.jellybean.api.dto.response.KdtMemberResponse;
 import com.jellybean.api.dto.response.MemberResponse;
 import com.jellybean.api.entity.Member;
 import com.jellybean.api.repository.KdtMemberRepository;
@@ -9,9 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -28,8 +25,8 @@ public class MemberService {
     }
 
     public MemberResponse findMemberInfoByEmail(String email) {
-        return memberRepository.findByEmail(email)
-            .map(MemberResponse::memberResponse)
+            return memberRepository.findByEmail(email)
+                    .map(MemberResponse::memberResponse)
             .orElseThrow(() -> new RuntimeException("유저 정보가 없습니다."));
     }
 
@@ -43,19 +40,19 @@ public class MemberService {
 //        return memberRepository.findByEmail(email);
 //    }
 
-    public List<KdtMemberResponse> getKdtMember(String email) {
+   /* public List<KdtMemberResponse> getKdtMember(String email) {
         List<Member> members = kdtMemberRepository.findByEmail(email);
         return members.stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
     }
-
-    private KdtMemberResponse convertToDto(Member member) {
+*/
+   /* private KdtMemberResponse convertToDto(Member member) {
         KdtMemberResponse kdtMemberResponse = new KdtMemberResponse();
         kdtMemberResponse.setEmail(member.getEmail());
         kdtMemberResponse.setName(member.getName());
         kdtMemberResponse.setBirth(member.getBirth());
         return kdtMemberResponse;
-    }
+    }*/
 
 }
