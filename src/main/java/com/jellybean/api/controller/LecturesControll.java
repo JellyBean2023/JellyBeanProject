@@ -1,7 +1,6 @@
 package com.jellybean.api.controller;
 
 import com.jellybean.api.entity.LecturesEntity;
-import com.jellybean.api.repository.LecturesRepository;
 import com.jellybean.api.service.LecturesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
