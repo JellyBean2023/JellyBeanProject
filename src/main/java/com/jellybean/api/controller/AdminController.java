@@ -29,5 +29,15 @@ public class AdminController {
         return ResponseEntity.ok(true);
     }
 
+    @GetMapping("")    //모든 과정 조회
+    public ResponseEntity<List<String>> getAdminLectures() throws IllegalAccessException {
+        List<String> lectures = adminService.getAdminLectures();
+        for (String lecture : lectures) {
+            System.out.println(lecture);
+        }
+        return ResponseEntity.ok().body(lectures);
+    }
+
+
 
 }

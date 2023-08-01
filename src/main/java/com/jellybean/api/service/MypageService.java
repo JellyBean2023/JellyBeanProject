@@ -35,7 +35,7 @@ public class MypageService {
             return new KdtMemberResponse(false);
         }
 
-        return new KdtMemberResponse(true, kdtmember.getName(), kdtmember.getEmail(), kdtmember.getPhoneNumber(), kdtmember.getPhoneNumberText(), kdtmember.getDate(), kdtmember.isAgreeCollect(), kdtmember.isAgreeThirdParty(), kdtmember.getExperience(), kdtmember.getExperienceText(), kdtmember.getFinalEducation(), kdtmember.getGetCard(), kdtmember.getGetEx(), kdtmember.getGrade(), kdtmember.getPathText()
+        return new KdtMemberResponse(true, kdtmember.getName(), kdtmember.getEmail(), kdtmember.getPhone(), kdtmember.getPhoneNumberText(), kdtmember.getDate(), kdtmember.isAgreeCollect(), kdtmember.isAgreeThirdParty(), kdtmember.getExperience(), kdtmember.getExperienceText(), kdtmember.getFinalEducation(), kdtmember.getGetCard(), kdtmember.getGetEx(), kdtmember.getGrade(), kdtmember.getPathText()
                 , kdtmember.getPaths(), kdtmember.getReason(), kdtmember.getRecommend(), kdtmember.getId());
     }
 }
