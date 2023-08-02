@@ -34,10 +34,8 @@ public class EmailController {
         try {
             boolean isVerified = emailService.checker(request.getEmail(), request.getCode());
             if (isVerified) {
-                //return ResponseEntity.ok("Verification code is correct.");
                 return ResponseEntity.ok("true");
             } else {
-              //  return ResponseEntity.badRequest().body("Verification code is incorrect.");
                 return ResponseEntity.badRequest().body("false");
             }
         } catch (NoSuchElementException e) {

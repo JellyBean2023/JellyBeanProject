@@ -1,6 +1,8 @@
 package com.jellybean.api.jwt;
 
 import com.jellybean.api.dto.TokenDto;
+import com.jellybean.api.entity.Authority;
+import com.jellybean.api.service.AuthService;
 import com.jellybean.api.util.RedisUtil;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
@@ -63,6 +65,7 @@ public class TokenProvider {
             .signWith(key, SignatureAlgorithm.HS512)
             .compact();
 
+
         return TokenDto.builder()
             .grantType(BEARER_TYPE)
             .accessToken(accessToken)
@@ -70,6 +73,7 @@ public class TokenProvider {
             .refreshToken(refreshToken)
             .build();
     }
+
 
     public Authentication getAuthentication(String accessToken) {
         // 토큰 복호화

@@ -39,6 +39,17 @@ Content-Type: application/json
   "password": "1q2w3e4r"
 }
 
+{
+  "email": "go@naver.com",
+  "password": "1q2w3e4r!@#"
+}
+
+{
+  "email": "admin@naver.com",
+  "password": "1q2w3e4r!@#"
+}
+
+
 ###로그아웃
 
 {

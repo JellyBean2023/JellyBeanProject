@@ -22,12 +22,14 @@ public class MemberRequest {
     private String phone;
     private String registCheck;
     private String employeeNumber;
+    private String authority;
 
     public Member toMember(PasswordEncoder passwordEncoder) {
+        Authority authorityEnum = Authority.valueOf(authority);
         return Member.builder()
             .email(email)
             .password(passwordEncoder.encode(password))
-            .authority(Authority.ROLE_MEMBER)
+            .authority(authorityEnum)
             .name(name)
             .birth(birth)
             .phone(phone)
@@ -37,9 +39,10 @@ public class MemberRequest {
     }
 
     public Member toMember() {
+        Authority authorityEnum = Authority.valueOf(authority);
         return Member.builder()
                 .email(email)
-                .authority(Authority.ROLE_MEMBER)
+                .authority(authorityEnum)
                 .name(name)
                 .birth(birth)
                 .phone(phone)
@@ -51,4 +54,7 @@ public class MemberRequest {
     public UsernamePasswordAuthenticationToken toAuthentication() {
         return new UsernamePasswordAuthenticationToken(email, password);
     }
+
+
+
 }

@@ -44,6 +44,7 @@ public class Member {
     private String employeeNumber;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "authority", nullable = false)
     private Authority authority;
 
     @Builder
