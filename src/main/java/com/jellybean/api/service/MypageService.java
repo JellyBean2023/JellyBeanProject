@@ -10,7 +10,10 @@ import com.jellybean.api.repository.MypageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class MypageService {
 
@@ -35,7 +38,7 @@ public class MypageService {
             return new KdtMemberResponse(false);
         }
 
-        return new KdtMemberResponse(true, kdtmember.getName(), kdtmember.getEmail(), kdtmember.getPhone(), kdtmember.getPhoneNumberText(), kdtmember.getDate(), kdtmember.isAgreeCollect(), kdtmember.isAgreeThirdParty(), kdtmember.getExperience(), kdtmember.getExperienceText(), kdtmember.getFinalEducation(), kdtmember.getGetCard(), kdtmember.getGetEx(), kdtmember.getGrade(), kdtmember.getPathText()
+        return new KdtMemberResponse(true, kdtmember.getName(), kdtmember.getEmail(), kdtmember.getPhone(), kdtmember.getPhoneNumberText(),kdtmember.getBirth(), kdtmember.getDate(), kdtmember.isAgreeCollect(), kdtmember.isAgreeThirdParty(), kdtmember.getExperience(), kdtmember.getExperienceText(), kdtmember.getFinalEducation(), kdtmember.getGetCard(), kdtmember.getGetEx(), kdtmember.getGrade(), kdtmember.getPathText()
                 , kdtmember.getPaths(), kdtmember.getReason(), kdtmember.getRecommend(), kdtmember.getId());
     }
 }

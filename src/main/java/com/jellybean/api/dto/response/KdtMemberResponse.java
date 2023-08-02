@@ -1,6 +1,5 @@
 package com.jellybean.api.dto.response;
 
-import com.jellybean.api.entity.Member;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,8 +14,9 @@ public class KdtMemberResponse {
         private boolean isExist;
         private String name;
         private String email;
-        private String phoneNumber;
+        private String phone;
         private String phoneNumberText;
+        private String birth;
         private LocalDate date;
         private boolean agreeCollect;
         private boolean agreeThirdParty;

@@ -35,6 +35,9 @@ public class KdtAppEntitiy {
     @Column(name = "date", length = 100, nullable = false)
     private LocalDate date;
 
+    @Column(name = "birth", length = 100, nullable = false)
+    private String birth;
+
     @Column(name = "agreeCollect", nullable = false)
     private boolean agreeCollect;
 
