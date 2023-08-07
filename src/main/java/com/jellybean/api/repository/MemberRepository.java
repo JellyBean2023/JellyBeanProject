@@ -1,5 +1,6 @@
 package com.jellybean.api.repository;
 
+import com.jellybean.api.entity.Authority;
 import com.jellybean.api.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,9 +1,9 @@
 package com.jellybean.api.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import com.jellybean.api.dto.request.MemberRequest;
+import com.jellybean.api.entity.Authority;
+import com.jellybean.api.repository.MemberRepository;
+import lombok.*;
 
 @Getter
 @NoArgsConstructor
@@ -15,5 +15,6 @@ public class TokenDto {
     private String accessToken;
     private String refreshToken;
     private Long accessTokenExpiresIn;
+
 
 }

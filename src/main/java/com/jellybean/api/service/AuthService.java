@@ -1,5 +1,6 @@
 package com.jellybean.api.service;
 
+import com.jellybean.api.entity.Authority;
 import com.jellybean.api.entity.Member;
 import com.jellybean.api.entity.RefreshToken;
 import com.jellybean.api.dto.TokenDto;
@@ -17,6 +18,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.net.URI;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -60,8 +64,23 @@ public class AuthService {
 
         refreshTokenRepository.save(refreshToken);
 
+
         // 5. 토큰 발급
         return tokenDto;
+    }
+
+    //Authority Admin계정 체크
+    public Boolean getAdminCheck(MemberRequest memberRequest) {
+        Boolean adminCheck = false;
+
+        Optional<Member> memberOptional = memberRepository.findByEmail(memberRequest.getEmail());
+
+        // authority가 ROLE_ADMIN인지 체크
+        if (memberOptional.isPresent() && memberOptional.get().getAuthority() == Authority.ROLE_ADMIN) {
+            adminCheck = true;
+        }
+
+        return adminCheck;
     }
 
     @Transactional

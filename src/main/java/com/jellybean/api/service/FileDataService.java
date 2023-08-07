@@ -33,13 +33,6 @@ public class FileDataService {
 //        String filePath = FOLDER_PATH + "\\" +file.getOriginalFilename();
 //        String filePath = FOLDER_PATH + "\\" + generateFileName() + getFileExtension(file.getOriginalFilename());
 
-//        String encodedPath = "";
-//        try {
-//            encodedPath = URLEncoder.encode(FOLDER_PATH, "UTF-8");
-//        } catch (UnsupportedEncodingException e) {
-//            // 인코딩 실패 시 예외 처리
-//            e.printStackTrace();
-//        }
 
         String filePath = FOLDER_PATH + "/" + generateFileName() + getFileExtension(file.getOriginalFilename());
         String fileNewName = generateFileName() + getFileExtension(file.getOriginalFilename());
