@@ -14,6 +14,7 @@ public class KdtAppRequest {
     private String email;
     private String phone;
     private String phoneNumberText;
+    private String birth;
     private LocalDate date;
     private boolean agreeCollect;
     private boolean agreeThirdParty;

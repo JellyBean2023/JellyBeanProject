@@ -26,6 +26,7 @@ public class KdtAppService {
                             .email(request.getEmail())
                             .phone(request.getPhone())
                             .phoneNumberText(request.getPhoneNumberText())
+                            .birth(request.getBirth())
                             .date(request.getDate())
                             .agreeCollect(request.isAgreeCollect())
                             .agreeThirdParty(request.isAgreeThirdParty())
