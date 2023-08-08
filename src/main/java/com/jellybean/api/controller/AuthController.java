@@ -32,12 +32,12 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<Boolean> signup(@RequestBody MemberRequest memberRequest) {
+    public ResponseEntity<MemberResponse> signup(@RequestBody MemberRequest memberRequest) {
 
         //회원가입 성공 처리
-        MemberResponse response = authService.signup(memberRequest);
-        return ResponseEntity.ok(true);
-//        return ResponseEntity.ok(authService.signup(memberRequest));
+//        MemberResponse response = authService.signup(memberRequest);
+//        return ResponseEntity.ok(true);
+        return ResponseEntity.ok(authService.signup(memberRequest));
     }
 
 
