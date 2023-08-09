@@ -96,13 +96,14 @@ public class AdminService {
 
         for (LecturesEntity lecture : lectures) {
             String lectureInfo = "{"
-                    + "\"lecName\" : \"" + lecture.getLecName() + "\", "
-                    + "\"cardinalName\" : \"" + lecture.getCardinalName() + "\", "
-                    + "\"lecStatus\" : \"" + lecture.getLecStatus() + "\", "
-                    + "\"lecInfo\" : \"" + lecture.getLecInfo() + "\""
+                    + "'lecName' : '" + lecture.getLecName() + "', "
+                    + "'cardinalName' : '" + lecture.getCardinalName() + "', "
+                    + "'lecStatus' : '" + lecture.getLecStatus() + "', "
+                    + "'lecInfo' : '" + lecture.getLecInfo() + "'"
                     + "}, ";
 
-            adminLectures.add("\"" + lecture.getLecId() + "\" : " + lectureInfo);
+//            adminLectures.add("'" + lecture.getLecId() + "' : " + lectureInfo);
+            adminLectures.add(lectureInfo);
         }
 
         if(!lectures.isEmpty()) return adminLectures;
