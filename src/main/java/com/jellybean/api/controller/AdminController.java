@@ -19,7 +19,7 @@ public class AdminController {
     @PostMapping("/{updateId}") //
     public ResponseEntity<Boolean> updatePage(@PathVariable("updateId") String id, @RequestBody Map<Long, Map<String, Object>> idToUpdate) throws IllegalAccessException {
 
-        if(id.equals("curriculumbox")){
+        if(id.equals("CurriculumBox")){
             adminService.updateLectures(idToUpdate);
         }
         else if(id.equals("section1")){

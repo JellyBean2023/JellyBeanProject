@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class AdminService {
@@ -50,10 +51,11 @@ public class AdminService {
         return true;
     }
 
+
     //과정 수정
     public boolean updateLectures(Map<Long, Map<String, Object>> lecturesToUpdate) throws IllegalAccessException {
         for (Map.Entry<Long, Map<String, Object>> entry : lecturesToUpdate.entrySet()) {
-            Long lecId = entry.getKey();
+            Long lecId = entry.getKey() +1;
             Map<String, Object> lectureInfo = entry.getValue();
 
             LecturesEntity updateLectureEntity = lecturesRepository.findById(lecId)
@@ -88,6 +90,33 @@ public class AdminService {
         return true;
     }
 
+
+    //모든 과정 조회
+    public List<String> getAdminLectures() throws IllegalAccessException {
+
+        List<String> adminLectures = new ArrayList<>();
+        List<LecturesEntity> lectures = lecturesRepository.findAll();
+
+        for (LecturesEntity lecture : lectures) {
+            String lectureInfo =
+                    "{ lecName : '" + lecture.getLecName() + "', "
+                    + "cardinalName : '" + lecture.getCardinalName() + "', "
+                    + "lecStatus : '" + lecture.getLecStatus() + "', "
+                    + "lecInfo : '" + lecture.getLecInfo() + "' }, ";
+//                    + "}";
+
+//            adminLectures.add("[" + lectureInfo + "]");
+            adminLectures.add(lectureInfo);
+        }
+
+        if(!lectures.isEmpty()) return adminLectures;
+        else throw new IllegalAccessException("no such data");
+    }
+
+
+}
+
+/*
     //모든 과정 조회
     public List<String> getAdminLectures() throws IllegalAccessException {
 
@@ -108,10 +137,7 @@ public class AdminService {
 
         if(!lectures.isEmpty()) return adminLectures;
         else throw new IllegalAccessException("no such data");
-    }
-
-
-}
+    }*/
 
 
 
