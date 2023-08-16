@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 @AllArgsConstructor
 @Getter
 @NoArgsConstructor
@@ -15,7 +13,6 @@ public class KdtAppRequest {
     private String phone;
     private String phoneNumberText;
     private String birth;
-    private LocalDate date;
     private boolean agreeCollect;
     private boolean agreeThirdParty;
     private String experience;

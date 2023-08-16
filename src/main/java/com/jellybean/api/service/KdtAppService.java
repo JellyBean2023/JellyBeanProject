@@ -9,6 +9,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 
 @Service
 @Transactional
@@ -25,9 +26,9 @@ public class KdtAppService {
                             .name(request.getName())
                             .email(request.getEmail())
                             .phone(request.getPhone())
+                            .date(LocalDate.now())
                             .phoneNumberText(request.getPhoneNumberText())
                             .birth(request.getBirth())
-                            .date(request.getDate())
                             .agreeCollect(request.isAgreeCollect())
                             .agreeThirdParty(request.isAgreeThirdParty())
                             .experience(request.getExperience())
